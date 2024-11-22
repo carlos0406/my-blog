@@ -49,11 +49,12 @@ export default function RootLayout({
       lang="en"
       className={cx(
         GeistSans.variable,
-        GeistMono.variable
+        GeistMono.variable,
+        "no-scrollbar"
       )}
       suppressHydrationWarning
     >
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
+      <body className="text-primary-100 antialiased max-w-xl mx-4 mt-8 lg:mx-auto scrollbar-thin scrollbar-webkit">
         <Providers>
           <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
             <Navbar />

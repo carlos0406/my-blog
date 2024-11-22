@@ -66,24 +66,36 @@ function slugify(str) {
 
 function createHeading(level) {
   const Heading = ({ children }) => {
-    const slug = slugify(children)
+    const slug = slugify(children);
+    const sizeClasses = {
+      1: 'text-4xl font-bold', // Exemplo: Título maior
+      2: 'text-3xl font-semibold', // Subtítulo
+      3: 'text-2xl font-medium',
+      4: 'text-xl font-medium',
+      5: 'text-lg font-normal',
+      6: 'text-base font-normal',
+    };
+
     return React.createElement(
       `h${level}`,
-      { id: slug },
+      {
+        id: slug,
+        className: `mt-4 mb-2 ${sizeClasses[level]} flex items-center group`, // Adicione estilos de espaçamento e alinhamento
+      },
       [
         React.createElement('a', {
           href: `#${slug}`,
           key: `link-${slug}`,
-          className: 'anchor',
+          className:
+            'ml-2 opacity-0 group-hover:opacity-100 transition-opacity text-blue-500', // Ícone de link visível ao passar o mouse
         }),
       ],
       children
-    )
-  }
+    );
+  };
 
-  Heading.displayName = `Heading${level}`
-
-  return Heading
+  Heading.displayName = `Heading${level}`;
+  return Heading;
 }
 
 const components = {

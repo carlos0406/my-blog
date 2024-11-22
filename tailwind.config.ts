@@ -6,9 +6,14 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  darkMode: ['class'], // Modificado para array com 'class'
+  darkMode: ['class'],
   theme: {
     extend: {
+      colors:{
+        primary:{
+          "100": "#f7fafc",
+        }
+      }
     },
   },
   plugins: [],
