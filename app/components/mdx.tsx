@@ -57,30 +57,30 @@ function slugify(str) {
   return str
     .toString()
     .toLowerCase()
-    .trim() // Remove whitespace from both ends of a string
-    .replace(/\s+/g, '-') // Replace spaces with -
-    .replace(/&/g, '-and-') // Replace & with 'and'
-    .replace(/[^\w\-]+/g, '') // Remove all non-word characters except for -
-    .replace(/\-\-+/g, '-') // Replace multiple - with single -
+    .trim() 
+    .replace(/\s+/g, '-') 
+    .replace(/&/g, '-and-') 
+    .replace(/[^\w\-]+/g, '') 
+    .replace(/\-\-+/g, '-')
 }
 
-function createHeading(level) {
-  const Heading = ({ children }) => {
+function createHeading(level: string) {
+  const Heading = ({ children  }: { children: React.ReactNode }) => {
     const slug = slugify(children);
     const sizeClasses = {
-      1: 'text-4xl font-bold', // Exemplo: Título maior
-      2: 'text-3xl font-semibold', // Subtítulo
-      3: 'text-2xl font-medium',
-      4: 'text-xl font-medium',
-      5: 'text-lg font-normal',
-      6: 'text-base font-normal',
+      "1": 'text-4xl font-bold', 
+      "2": 'text-3xl font-semibold',
+      "3": 'text-2xl font-medium',
+      "4": 'text-xl font-medium',
+      "5": 'text-lg font-normal',
+      "6": 'text-base font-normal',
     };
 
     return React.createElement(
       `h${level}`,
       {
         id: slug,
-        className: `mt-4 mb-2 ${sizeClasses[level]} flex items-center group`, // Adicione estilos de espaçamento e alinhamento
+        className: `mt-4 mb-2 ${sizeClasses[level as "1"]} flex items-center group`, // Adicione estilos de espaçamento e alinhamento
       },
       [
         React.createElement('a', {

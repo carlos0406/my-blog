@@ -9,8 +9,8 @@ const config: Config = {
   darkMode: ['class'],
   theme: {
     extend: {
-      colors:{
-       
+      primary:{
+        100:"blue"
       }
     },
   },
